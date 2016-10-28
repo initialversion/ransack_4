@@ -16,7 +16,7 @@
 
       <% @votes.each do |vote| %>
       <tr>
-        <td><%= vote.voter_id %></td>
+        <td><%= vote.user.email %></td>
         <td><%= vote.vote_descrption %></td>
         <td>
           <a href="/votes/<%= vote.id %>" class="btn btn-primary">Show</a>
