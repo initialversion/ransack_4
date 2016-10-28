@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @vote.errors.any? %>
+  <% @vote.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Vote #<%= @vote.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_vote/<%= @vote.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for voter_id -->
+      <div class="form-group">
+        <label for="voter_id" class="control-label">
+          Voter
+        </label>
+
+        <input type="text" id="voter_id" name="voter_id" placeholder="Voter" class="form-control" value="<%= @vote.voter_id %>">
+      </div>
+
+      <!-- Label and input for vote_descrption -->
+      <div class="form-group">
+        <label for="vote_descrption" class="control-label">
+          Vote descrption
+        </label>
+
+        <input type="text" id="vote_descrption" name="vote_descrption" placeholder="Vote descrption" class="form-control" value="<%= @vote.vote_descrption %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Vote
+      </button>
+      or
+      <a href="/votes/<%= @vote.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
