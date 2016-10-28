@@ -18,14 +18,8 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for voter_id -->
-      <div class="form-group">
-        <label for="voter_id" class="control-label">
-          Voter
-        </label>
-
-        <%= select_tag(:voter_id, options_from_collection_for_select(User.all, :id, :email, @vote.voter_id), :class => "form-control") %>
-      </div>
+      
+      
 
       <!-- Label and input for vote_descrption -->
       <div class="form-group">
