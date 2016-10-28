@@ -16,7 +16,7 @@
 
       <% @comments.each do |comment| %>
       <tr>
-        <td><%= comment.commenter_id %></td>
+        <td><%= comment.commenter.email %></td>
         <td><%= comment.comment_description %></td>
         <td>
           <a href="/comments/<%= comment.id %>" class="btn btn-primary">Show</a>
