@@ -38,12 +38,14 @@
           <a href="/photos/<%= photo.id %>" class="btn btn-primary">
             Show
           </a>
-          <a href="/photos/<%= photo.id %>/edit" class="btn btn-warning">
-            Edit
-          </a>
-          <a href="/delete_photo/<%= photo.id %>" class="btn btn-danger" rel="nofollow">
-            Delete
-          </a>
+          <%if current_user == photo.user %>
+            <a href="/photos/<%= photo.id %>/edit" class="btn btn-warning">
+              Edit
+            </a>
+            <a href="/delete_photo/<%= photo.id %>" class="btn btn-danger" rel="nofollow">
+              Delete
+            </a>
+          <% end %>
         </li>
       <% end %>
     </ul>
@@ -67,12 +69,14 @@
           <a href="/comments/<%= comment.id %>" class="btn btn-primary">
             Show
           </a>
-          <a href="/comments/<%= comment.id %>/edit" class="btn btn-warning">
-            Edit
-          </a>
-          <a href="/delete_comment/<%= comment.id %>" class="btn btn-danger" rel="nofollow">
-            Delete
-          </a>
+          <%if current_user == comment.commenter %>
+            <a href="/comments/<%= comment.id %>/edit" class="btn btn-warning">
+              Edit
+            </a>
+            <a href="/delete_comment/<%= comment.id %>" class="btn btn-danger" rel="nofollow">
+              Delete
+            </a>
+          <% end %>
         </li>
       <% end %>
     </ul>
@@ -96,12 +100,14 @@
           <a href="/votes/<%= vote.id %>" class="btn btn-primary">
             Show
           </a>
-          <a href="/votes/<%= vote.id %>/edit" class="btn btn-warning">
-            Edit
-          </a>
-          <a href="/delete_vote/<%= vote.id %>" class="btn btn-danger" rel="nofollow">
-            Delete
-          </a>
+          <%if current_user == vote.user %>
+            <a href="/votes/<%= vote.id %>/edit" class="btn btn-warning">
+              Edit
+            </a>
+            <a href="/delete_vote/<%= vote.id %>" class="btn btn-danger" rel="nofollow">
+              Delete
+            </a>
+          <% end %>
         </li>
       <% end %>
     </ul>
