@@ -9,9 +9,8 @@ class PhotosController < ApplicationController
     end
   end
 
-  def index
-    @photos = current_user.photos.page(params[:page])
-  end
+  @q = current_user.photos.ransack(params[:q])
+    @photos = @q.result(:distinct => true).includes(:user).page(params[:page]).per(params[:per_page])
 
   def show
     @photo = Photo.find(params[:id])
